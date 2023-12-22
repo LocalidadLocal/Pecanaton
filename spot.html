@@ -1,99 +1,156 @@
-<! DOCTYPE html>
+<!DOCTYPE html>
 <html lang="es">
-<cabeza>
+
+<head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="icon" href="Imagen de WhatsApp 2023-12-22 a las 10.52.46 AM.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página Navideña con Videos</title>
-    <estilo>
-        cuerpo {
-            color de fondo: #e5e5e5;
+    <style>
+        body {
+            background-color: #e5e5e5;
             font-family: 'Arial', sans-serif;
-            Margen: 0;
-            Relleno: 0;
+            margin: 0;
+            padding: 0;
         }
 
-        encabezado {
-            color de fondo: #D9534F;
-            Color: #FFF;
-            text-align: centro;
-            Relleno: 20px;
-            tamaño de fuente: 24px;
+        header {
+            background-color: #D9534F;
+            color: #FFF;
+            text-align: center;
+            padding: 20px;
+            font-size: 24px;
         }
 
- . Contenedor {
-            Ancho máximo: 1200px;
-            margen: 20px automático;
-            Relleno: 20px;
-            color de fondo: #fff;
-            box-shadow: 0 0 20px rgba(0, 0, 0,  0.1 );
+        .contenedor {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
             border-radius: 10px;
         }
 
- . Videos {
-            Pantalla: Flex;
-            flex-wrap: envoltura;
-            justify-content: espacio-alrededor;
+        .videos {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
         }
 
- . vídeo {
-            Ancho: 45%;
+        .video {
+            position: relative;
+            width: 45%;
             margin-bottom: 20px;
-            color de fondo: #fff;
+            background-color: #fff;
             border-radius: 10px;
-            desbordamiento: oculto;
-            box-shadow: 0 0 10px rgba(0, 0, 0,  0.1 );
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
 
- . iframe de vídeo {
-            Ancho: 100%;
-            Altura: 200px;
-            Frontera: ninguna;
+        .video:hover {
+            transform: scale(1.05);
         }
 
- . boton-volver {
-            pantalla: bloque;
-            Margen superior: 20px;
-            Relleno: 15 px 20px ;
-            color de fondo: #5bc0de; /* Color azul */
-            Color: #FFF;
-            text-align: centro;
-            decoración de texto: ninguna;
-            tamaño de fuente: 18px;
+        .video iframe {
+            width: 100%;
+            height: 200px;
+            border: none;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            cursor: pointer;
+        }
+
+        .overlay-text {
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        .video:hover .overlay {
+            opacity: 1;
+        }
+
+        .boton-volver {
+            display: block;
+            margin-top: 20px;
+            padding: 15px 20px;
+            background-color: #5bc0de;
+            color: #FFF;
+            text-align: center;
+            text-decoration: none;
+            font-size: 18px;
             border-radius: 5px;
-            cursor: puntero;
-            transición: color de fondo 0,3s de facilidad;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
         }
 
- . boton-volver:hover {
-            color de fondo: #46b8da; /* Color azul oscuro al pasar el mouse */
+        .boton-volver:hover {
+            background-color: #46b8da;
         }
-    </estilo>
-</cabeza>
-<cuerpo>
-    <encabezado>
+    </style>
+</head>
+
+<body>
+    <header>
         ¡Bienvenido a la Página Navideña!
-    </encabezado>
+    </header>
     <div class="contenedor">
         <div class="videos">
             <div class="video">
-                <iframe src="Vídeo de WhatsApp 2023/12/22 a las 9.33.18 a.m.mp4" frameborder="0" allowfullscreen></iframe>
-            </Div>
+                <iframe src="WhatsApp Video 2023-12-22 at 9.33.18 AM.mp4" frameborder="0" allowfullscreen></iframe>
+                <div class="overlay" onclick="playVideo(this)">
+                    <div class="overlay-text">▶ Reproducir</div>
+                </div>
+            </div>
             <div class="video">
-                <iframe src="Vídeo de WhatsApp 2023/12/22 a las 9.48.44 a.m.mp4" frameborder="0" allowfullscreen></iframe>
-            </Div>
+                <iframe src="WhatsApp Video 2023-12-22 at 9.48.44 AM.mp4" frameborder="0" allowfullscreen></iframe>
+                <div class="overlay" onclick="playVideo(this)">
+                    <div class="overlay-text">▶ Reproducir</div>
+                </div>
+            </div>
             <div class="video">
-                <iframe src="Vídeo de WhatsApp 2023/12/22 a las 9.49.47 a.m.mp4" frameborder="0" allowfullscreen></iframe>
-            </Div>
+                <iframe src="WhatsApp Video 2023-12-22 at 9.49.47 AM.mp4" frameborder="0" allowfullscreen></iframe>
+                <div class="overlay" onclick="playVideo(this)">
+                    <div class="overlay-text">▶ Reproducir</div>
+                </div>
+            </div>
             <div class="video">
-                <iframe src="Vídeo de WhatsApp 2023/12/22 a las 9.51.33 a.m.mp4" frameborder="0" allowfullscreen></iframe>
-            </Div>
+                <iframe src="WhatsApp Video 2023-12-22 at 9.51.33 AM.mp4" frameborder="0" allowfullscreen></iframe>
+                <div class="overlay" onclick="playVideo(this)">
+                    <div class="overlay-text">▶ Reproducir</div>
+                </div>
+            </div>
             <div class="video">
-                <iframe src="Vídeo de WhatsApp 2023/12/22 a las 9.53.09 a.m.mp4" frameborder="0" allowfullscreen></iframe>
-            </Div>
-        </Div>
-        <a href="index.html" class="boton-volver">Volver</a >
-    </Div>
-</cuerpo>
-</HTML>
+                <iframe src="WhatsApp Video 2023-12-22 at 9.53.09 AM.mp4" frameborder="0" allowfullscreen></iframe>
+                <div class="overlay" onclick="playVideo(this)">
+                    <div class="overlay-text">▶ Reproducir</div>
+                </div>
+            </div>
+        </div>
+        <a href="index.html" class="boton-volver">Volver</a>
+    </div>
+
+    <script>
+        function playVideo(overlay) {
+            var video = overlay.parentNode.querySelector('iframe');
+            video.src += "&autoplay=1";
+            overlay.style.display = 'none';
+        }
+    </script>
+</body>
+
+</html>
