@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="icon" href="WhatsApp Image 2023-12-22 at 10.52.46 AM.ico">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compra Navideña Exitosa</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #e8f5e9; /* Verde suave */
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            background-color: #ffffff; /* Blanco */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            border-radius: 8px;
+        }
+
+        .success-message {
+            color: #d32f2f; /* Rojo oscuro */
+            font-size: 32px;
+            margin-bottom: 20px;
+        }
+
+        .animation-container {
+            width: 100px;
+            height: 100px;
+            background-color: #d32f2f; /* Rojo oscuro */
+            border-radius: 50%;
+            display: inline-block;
+            animation: pulse 1s infinite;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.2); }
+            100% { transform: scale(1); }
+        }
+
+        .contact-info {
+            font-size: 18px;
+            margin-top: 20px;
+        }
+
+        .contact-link {
+            color: #1976d2; /* Azul */
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .nombre-input {
+            margin-top: 20px;
+        }
+
+        .nombre-input input {
+            margin-right: 10px;
+            padding: 8px;
+            border: 1px solid #d32f2f; /* Rojo oscuro */
+            border-radius: 4px;
+        }
+
+        .nombre-input button {
+            padding: 8px;
+            background-color: #d32f2f; /* Rojo oscuro */
+            color: #ffffff; /* Blanco */
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="success-message">¡Compra Navideña Exitosa!</div>
+        <div class="animation-container"></div>
+        <div class="contact-info">Asegure su compra y escríbanos, ponga su nombre allí abajo o llámenos al siguiente número <a href="tel:+51927904737" class="contact-link">927904737</a></div>
+        <div class="nombre-input">
+            <label for="nombre">Por favor, ingrese su nombre:</label>
+            <input type="text" id="nombre" placeholder="Nombre">
+            <button onclick="redirigirWhatsApp()">Enviar</button>
+        </div>
+    </div>
+
+    <script>
+       function redirigirWhatsApp() {
+    var nombreCliente = document.getElementById('nombre').value;
+
+    // Obtener información de la compra desde localStorage
+    var productosComprados = localStorage.getItem('productosComprados') || "";
+    var precios = localStorage.getItem('precios') || "";
+    var precioTotal = localStorage.getItem('precioTotal') || "0.00";
+
+    // Validar que haya productos antes de redirigir
+    if (productosComprados.trim() === "") {
+        alert("No hay productos en la compra.");
+        return;
+    }
+
+    // Crear mensaje personalizado
+    var mensaje = `¡Hola, soy ${nombreCliente}! He realizado una compra de los siguientes productos:\n\n${productosComprados}\nPrecios:\n${precios}\nTotal: S/${precioTotal}\n\n¡Felices fiestas! 🎄🎅`;
+
+    // Redirige a wa.me con el mensaje predefinido
+    var numeroWhatsApp = '+51927904737';
+    var urlAPIWhatsApp = 'https://wa.me/' + numeroWhatsApp + '?text=' + encodeURIComponent(mensaje);
+    window.location.href = urlAPIWhatsApp;
+}
+    </script>
+</body>
+</html>
